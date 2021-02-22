@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 class AddUserScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Add User'),
+      ),
+    );
   }
 }

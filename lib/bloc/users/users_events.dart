@@ -11,3 +11,5 @@ class RemoveUserEvent extends UsersEvent {
   final User user;
   RemoveUserEvent(this.user);
 }
+
+class GetUsersEvent extends UsersEvent {}
