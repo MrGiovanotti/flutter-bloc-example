@@ -28,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    _usersBloc.usersSink.add(GetUsersEvent());
     return Container(
       child: Scaffold(
         appBar: AppBar(
@@ -59,6 +60,8 @@ class _HomeScreenState extends State<HomeScreen> {
             itemBuilder: (context, index) {
               return ListTile(
                 leading: Icon(Icons.person),
+                title: Text(snapshot.data[index].name),
+                subtitle: Text('Edad: ' + snapshot.data[index].age.toString()),
               );
             },
           );
