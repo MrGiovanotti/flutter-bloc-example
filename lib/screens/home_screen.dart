@@ -58,10 +58,20 @@ class _HomeScreenState extends State<HomeScreen> {
           return ListView.builder(
             itemCount: snapshot.data.length,
             itemBuilder: (context, index) {
-              return ListTile(
-                leading: Icon(Icons.person),
-                title: Text(snapshot.data[index].name),
-                subtitle: Text('Edad: ' + snapshot.data[index].age.toString()),
+              return Dismissible(
+                key: UniqueKey(),
+                background: Container(
+                  decoration: BoxDecoration(color: Colors.red),
+                ),
+                child: ListTile(
+                  leading: Icon(Icons.person),
+                  title: Text(snapshot.data[index].name),
+                  subtitle:
+                      Text('Edad: ' + snapshot.data[index].age.toString()),
+                ),
+                onDismissed: (direction) => _usersBloc.usersSink.add(
+                  RemoveUserEvent(snapshot.data[index]),
+                ),
               );
             },
           );
