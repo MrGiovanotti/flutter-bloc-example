@@ -4,8 +4,15 @@ class UsersState {
   List<User> _users = [];
 
   UsersState._();
-  static UsersState _instance = UsersState._();
-  factory UsersState() => _instance;
+
+  static UsersState _instance;
+
+  factory UsersState() {
+    if (_instance == null) {
+      _instance = UsersState._();
+    }
+    return _instance;
+  }
 
   List<User> get users => _users;
 
